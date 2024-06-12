@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper>
+
+<select id="getChatRoom" resultType="BoardDto" parameterType="int">
+    select * from 채팅방table where no = #{no}
+    <!-- select * from board where no = ? -->
+</select>
+    <delete id="deleteChatRoom" parameterType="ChatDTO">
+        delete from 채팅방table where no = #{no}
+    </delete>
+
+
+    <insert id="createChatRoom" parameterType="ChatDTO">
+        insert into board values // 시퀀스 등록해야함
+        (chat_seq.nextval,#{chatID},
+        #{matchID},#{boardID}
+
+    </insert>
+    <update id="updateChatRoom" parameterType="ChatDto">
+        update board set
+        relevel = relevel + 1
+        where regroup = #{regroup} and relevel > #{relevel}
+    </update>
+
+        </mapper>
